@@ -14,7 +14,10 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Group Ironman Assistant Plugin"
+	name = "Group Ironman Assistant Plugin",
+		description = "Tracks the groups items and levels per member and calculates available experience for skills",
+		tags = {"tracker,gim,assistant,calculator"},
+		enabledByDefault = true
 )
 public class GroupIronmanAssistantPlugin extends Plugin
 {
@@ -27,13 +30,13 @@ public class GroupIronmanAssistantPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		log.info("Example started!");
+		log.info("Group Ironman Assistant started!");
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
-		log.info("Example stopped!");
+		log.info("Group Ironman Assistant stopped!");
 	}
 
 	@Subscribe
@@ -41,7 +44,7 @@ public class GroupIronmanAssistantPlugin extends Plugin
 	{
 		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
 		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
+			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Group Ironman Assistant says " + config.greeting(), null);
 		}
 	}
 
